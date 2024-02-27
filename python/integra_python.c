@@ -2,7 +2,7 @@
 
 extern void check();
 
-static PyObject *wrapper_check(PyObject *self) {
+static PyObject *wrapper_check(PyObject *self, PyObject* args) {
     check();
     Py_RETURN_NONE;
 }
