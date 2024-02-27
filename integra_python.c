@@ -28,12 +28,12 @@ static PyMethodDef module_methods[] = {
 // Inicialização do módulo
 static struct PyModuleDef moduledef = {
     PyModuleDef_HEAD_INIT,
-    "meu_modulo",  // Nome do módulo
+    "integra_python",  // Nome do módulo
     NULL,           // Documentação do módulo
     -1,             // Estado do módulo, -1 significa que o módulo não suporta sub-interpretação
     module_methods
 };
 
-PyMODINIT_FUNC PyInit_meu_modulo(void) {
+PyMODINIT_FUNC PyInit_integra_python(void) {
     return PyModule_Create(&moduledef);
 }
