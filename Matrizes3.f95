@@ -23,8 +23,9 @@ program aprofundando
     write (*, 99) "Encontrando na matriz 1 a primeira localizacao do elemento 3", findloc(matriz1, 3)
     write (*, 99) "Encontrando na matriz 1 a ultima localizacao do elemento 3", findloc(matriz1, 3, back = .true.) 
     write (*, 99) "O limite inferior da primeira dimensao da Matriz 2:", lbound(matriz2, dim = 1) ! matriz2 é o array
-    write (*, 99) "O limite superior da segunda dimensao da Matriz 2:", ubound(matriz2, dim = 2) 
-
+    write (*, 99) "O limite superior da segunda dimensao da Matriz 2:", ubound(matriz2, dim = 2)
+    pula_linha = new_line("A")
+ 
     print*, "Quer continuar com o ensino? "
     read (*,*)
     print*, pula_linha
