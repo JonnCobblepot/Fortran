@@ -16,69 +16,7 @@ for linha in mat:
 
 check()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 """
-check()
-
-# Pedindo ao usuário para digitar um número inteiro
-n = int(input("(from pyhton) - Digite um numero inteiro: "))
-
-# Chamando a função em Fortran para criar a lista
-lista = vetor(n)
-
-# Vai printar a lista
-print(f'(from python) - A lista formada pelos inteiro de 1 até {n} é:')
-
-for i in range(n):
-    print(lista[i], end=' ')
-print()
-
-# print(lista)
-# check()
-"""
-
-
-"""
-
-# Chama a função check no fortran que tem acesso a variável my_internal_state
-check()
-
-for a,b in [(1.0,2.0),(-1.0,2.0)]:
-    c = soma(a,b)
-    print(f'(from python) a soma de {a} com {b} dá {c}')
-    check()
-
-"""
-
-"""
-
-# Chamando uma matriz
-m = int(input("Quantidade de linhas: "))
-h = int(input("Quantidade de colunas: "))
-matriz = []
-for i in range(m):
-  linha = []
-  for j in range(h):
-    linha.append(0)
-  matriz.append(linha)
-print(matriz)
-
-
 # Chamando um dicionário
 agenda= {}
 def InserirPessoa(nome):
@@ -122,6 +60,5 @@ while (True):
     resultado = eval(f"{funcao}(*argumentos)")
 # Exibir o resultado
 print(resultado)
-
 
 """
