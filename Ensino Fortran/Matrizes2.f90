@@ -12,7 +12,7 @@ program matrizes2_e_alfabeto
     99 format ( A, //, 3(I4, 1X), / )
     pula_linha = new_line("A")
 
-    matriz1 = reshape( source = [(i, i=0, 100, 5)] , shape = [5,5] , order = [1,2], pad = [0,1]) ! pad completa a matriz
+    matriz1 = reshape( source = [(i, i=0, 1000, 5)] , shape = [5,5] , order = [1,2], pad = [0,1]) ! pad completa a matriz
     matriz2 = reshape( source = [integer :: ] , shape = [3,3] , order = [1,2], pad = [0,-1,10]) ! matriz vazia, se não fosse o pad
 
     ! Execução
