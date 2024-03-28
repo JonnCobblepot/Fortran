@@ -18,7 +18,7 @@ contains
         07 format (A, I0, A, I0)
         write (*, 07) "(from Fortran) - Dimensões recebidas: nlinhas = ", nlinhas, ", ncolunas = ", ncolunas
         
-        mat = reshape( source = [(i, i=0, 100, 5)] , shape = [nlinhas,ncolunas] , order = [1,2], pad = [0]) ! pad completa a matriz
+        mat = reshape( source = [(i, i=0, 1000, 5)] , shape = [nlinhas,ncolunas] , order = [1,2], pad = [0]) ! pad completa a matriz
     
         if (nlinhas > 0 .and. ncolunas > 0) then
             print '("(from fortran) - State changed!")'
