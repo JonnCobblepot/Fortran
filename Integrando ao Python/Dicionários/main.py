@@ -1,50 +1,55 @@
 import integra_python
-import re
-
+    
 # Função para adicionar uma nova entrada à agenda telefônica
-def adicionar_chave(nome, numeros):
-    numeros_int = [int(re.sub(r'\D', '', numero)) for numero in numeros]  # Extrai apenas os dígitos dos números de telefone
-    # Passar quatro argumentos para a função adicionar_chave em Fortran
-    integra_python.adicionar_chave(nome, numeros_int)
-    #integra_python.adicionar_chave(nome, len(nome), numeros_int, len(numeros_int))
-
+def adicionar_chave():
+    nome = input("Digite o nome do contato: ")
+    numero = int(input("Digite o número de telefone: "))
+    integra_python.adicionar_chave(nome.encode(), len(nome), numero)
+    
 # Função para imprimir o conteúdo da agenda telefônica
 def print_agenda():
     integra_python.print_agenda()
-
+    
 # Função para verificar o estado do dicionário
 def check():
     integra_python.check()
-
-# Inicialização da agenda telefônica
-def iniciar_agenda():
+    
+# Função para excluir um contato da agenda telefônica
+def excluir_contato():
+    nome = input("Digite o nome do contato que deseja excluir: ")
+    integra_python.excluir_contato(nome.encode(), len(nome))
+    
+# Função para modificar um contato existente na agenda telefônica
+def alterar_contato():
+    nome = input("Digite o nome do contato que deseja modificar: ")
+    novo_nome = input("Digite o novo nome para o contato: ")
+    novo_numero = int(input("Digite o novo número de telefone: "))
+    integra_python.alterar_contato(nome.encode(), len(nome), novo_nome.encode(), len(novo_nome), novo_numero)
+    
+if __name__ == "__main__":
     while True:
-        nome = input("(from python) - Digite o nome da pessoa (ou 'exit' para sair): ")
-        if nome == 'exit':
+        print("\nMenu:")
+        print("1. Adicionar novo contato")
+        print("2. Imprimir agenda telefônica")
+        print("3. Verificar estado da agenda")
+        print("4. Excluir contato")
+        print("5. Modificar contato")
+        print("0. Sair")
+        
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == '1':
+            adicionar_chave()
+        elif opcao == '2':
+            print_agenda()
+        elif opcao == '3':
+            check()
+        elif opcao == '4':
+            excluir_contato()
+        elif opcao == '5':
+            alterar_contato()
+        elif opcao == '0':
+            print("Encerrando o programa...")
             break
-        
-        numeros = []
-        while True:
-            numero = input("(from python) - Digite o número de telefone (ou 'finish' para encerrar): ")
-            if numero == 'finish':
-                break
-            
-            numeros.append(numero)
-        
-        # Chamar a função adicionar_chave com os quatro argumentos necessários
-        adicionar_chave(nome, numeros)
-
-# Verificar o estado do dicionário
-print("(from python) - Estado inicial do dicionário:")
-check()
-
-# Iniciar a agenda telefônica
-iniciar_agenda()
-
-# Imprimir o conteúdo da agenda telefônica
-print("\nConteúdo da agenda telefônica:")
-print_agenda()
-
-# Verificar o estado do dicionário após adicionar entradas
-print("\nEstado final do dicionário:")
-check()
+        else:
+            print("Opção inválida! Por favor, escolha uma opção válida.")
