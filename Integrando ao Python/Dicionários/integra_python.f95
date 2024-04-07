@@ -123,7 +123,7 @@ contains
         
         print '("(from fortran) - Conteúdo da agenda telefônica:")'
         do i = 1, size(agenda)
-            print '("Nome: ", A, ", Número: ", I0)', trim(agenda(i)%nome), agenda(i)%numero
+            print '("Nome: ", A, ", Número: ", I0.8)', trim(agenda(i)%nome), agenda(i)%numero
         end do
     end subroutine print_agenda
 
