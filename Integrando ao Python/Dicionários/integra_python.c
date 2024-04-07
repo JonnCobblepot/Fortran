@@ -24,7 +24,6 @@ static PyObject* wrapper_adicionar_chave(PyObject* self, PyObject* args) {
     if (!PyArg_ParseTuple(args, "s#K", &nome, &nome_len, &numero)) {
         return NULL;
     }
-    printf("%s %ld => %ld \n", nome, (size_t) nome_len, (size_t) numero);
     
     adicionar_chave(nome, (size_t) nome_len, (size_t) numero);
     
