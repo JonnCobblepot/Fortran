@@ -98,7 +98,7 @@ contains
     end subroutine alterar_contato
    
     ! Subrotina para excluir um contato da agenda
-    subroutine excluir_contato(nome, nome_len)
+    subroutine excluir_contato(nome, nome_len) bind(c)
         character(kind=c_char), dimension(*), intent(in) :: nome
         integer(c_int), value :: nome_len
         integer(c_int) :: index, new_size
