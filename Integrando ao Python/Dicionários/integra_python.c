@@ -1,12 +1,12 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <stdio.h>
-
+    
 extern void check();
-extern void adicionar_chave(char* nome, size_t nome_len, size_t numero);
+extern void adicionar_chave(char* nome, int nome_len, int numero);
 extern void print_agenda();
-extern void excluir_contato(char* nome, size_t nome_len);
-extern void alterar_contato(char* nome, size_t nome_len, char* novo_nome, size_t novo_nome_len, size_t novo_numero);
+extern void excluir_contato(char* nome, int nome_len);
+extern void alterar_contato(char* nome, int nome_len, char* novo_nome, int novo_nome_len, int novo_numero);
     
 // Protótipos das funções de wrapper
 static PyObject* wrapper_adicionar_chave(PyObject* self, PyObject* args);
@@ -19,13 +19,13 @@ static PyObject* wrapper_check(PyObject* self, PyObject* args);
 static PyObject* wrapper_adicionar_chave(PyObject* self, PyObject* args) {
     char* nome;
     Py_ssize_t nome_len;
-    Py_ssize_t numero;
+    int numero;
     
-    if (!PyArg_ParseTuple(args, "s#K", &nome, &nome_len, &numero)) {
+    if (!PyArg_ParseTuple(args, "s#i", &nome, &nome_len, &numero)) {
         return NULL;
     }
     
-    adicionar_chave(nome, (size_t) nome_len, (size_t) numero);
+    adicionar_chave(nome, (int)nome_len, numero);
     
     Py_RETURN_NONE;
 }
@@ -39,7 +39,7 @@ static PyObject* wrapper_excluir_contato(PyObject* self, PyObject* args) {
         return NULL;
     }
     
-    excluir_contato(nome, (size_t) nome_len);
+    excluir_contato(nome, (int)nome_len);
     
     Py_RETURN_NONE;
 }
@@ -50,13 +50,13 @@ static PyObject* wrapper_alterar_contato(PyObject* self, PyObject* args) {
     Py_ssize_t nome_len;
     char* novo_nome;
     Py_ssize_t novo_nome_len;
-    size_t novo_numero;
+    int novo_numero;
     
-    if (!PyArg_ParseTuple(args, "s#s#K", &nome, &nome_len, &novo_nome, &novo_nome_len, &novo_numero)) {
+    if (!PyArg_ParseTuple(args, "s#s#i", &nome, &nome_len, &novo_nome, &novo_nome_len, &novo_numero)) {
         return NULL;
     }
     
-    alterar_contato(nome, (size_t) nome_len, novo_nome, (size_t) novo_nome_len, (size_t) novo_numero);
+    alterar_contato(nome, (int)nome_len, novo_nome, (int)novo_nome_len, novo_numero);
     
     Py_RETURN_NONE;
 }

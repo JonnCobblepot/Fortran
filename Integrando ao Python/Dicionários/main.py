@@ -2,9 +2,9 @@ import integra_python
     
 # Função para adicionar uma nova entrada à agenda telefônica
 def adicionar_chave():
-    nome = str(input("Digite o nome do contato: "))
+    nome = input("Digite o nome do contato: ")
     numero = int(input("Digite o número de telefone: "))
-    integra_python.adicionar_chave(nome, numero)
+    integra_python.adicionar_chave(nome.encode(), len(nome), numero)
     
 # Função para imprimir o conteúdo da agenda telefônica
 def print_agenda():
@@ -16,15 +16,15 @@ def check():
     
 # Função para excluir um contato da agenda telefônica
 def excluir_contato():
-    nome = str(input("Digite o nome do contato que deseja excluir: "))
-    integra_python.excluir_contato(nome)
+    nome = input("Digite o nome do contato que deseja excluir: ")
+    integra_python.excluir_contato(nome.encode(), len(nome))
     
 # Função para modificar um contato existente na agenda telefônica
 def alterar_contato():
-    nome = str(input("Digite o nome do contato que deseja modificar: "))
-    novo_nome = str(input("Digite o novo nome para o contato: "))
+    nome = input("Digite o nome do contato que deseja modificar: ")
+    novo_nome = input("Digite o novo nome para o contato: ")
     novo_numero = int(input("Digite o novo número de telefone: "))
-    integra_python.alterar_contato(nome, novo_nome, novo_numero)
+    integra_python.alterar_contato(nome.encode(), len(nome), novo_nome.encode(), len(novo_nome), novo_numero)
     
 if __name__ == "__main__":
     while True:
